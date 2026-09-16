@@ -1,0 +1,21 @@
+# Grafana database
+*.db
+*.sqlite
+*.sqlite3
+
+# Helm generated files
+**/rendered.yaml
+**/generated.yaml
+
+# Real Kubernetes secrets
+**/*secret.yaml
+**/*secrets.yaml
+
+# Local environment files
+.env
+.env.*
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/

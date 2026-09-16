@@ -1,0 +1,33 @@
+adminUser: admin
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  size: 2Gi
+
+ingress:
+  enabled: false
+
+initChownData:
+  enabled: false
+
+envFromSecrets:
+  - name: grafana-postgres
+  - name: grafana-admin
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: PostgreSQL
+        type: postgres
+        url: postgres:5432
+        access: proxy
+        user: $__env{GF_POSTGRES_USER}
+        jsonData:
+          database: grafana
+          sslmode: disable
+        secureJsonData:
+          password: $__env{GF_POSTGRES_PASSWORD}

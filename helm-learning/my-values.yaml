@@ -1,0 +1,16 @@
+adminUser: admin
+
+adminPassword: CHANGE_ME
+
+service:
+  type: ClusterIP
+
+persistence:
+  enabled: true
+  size: 2Gi
+
+ingress:
+  enabled: false
+
+initChownData:
+  enabled: false
